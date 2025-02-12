@@ -31,7 +31,7 @@ fn main() {
                 // 为了体现效果，这里的索引用困难程度代替
                 let mined_block = block_chain.get(3).expect("Block should exist");
                 println!("Block #{} has been mined: {} time consuming {}ms", mined_block.index, mined_block.hash, mined_block.get_time_to_generate_block());
-                println!("Hash length: {}", mined_block.hash.len()); // 打印哈希的长度
+                // println!("Hash length: {}", mined_block.hash.len()); // 打印哈希的长度
                 let signature = personal_wallet.sign(mined_block.hash.clone());
                 if personal_wallet.verify(personal_wallet.msg, signature, personal_wallet.public_key)
                 {
@@ -47,11 +47,6 @@ fn main() {
                 println!("Block #{} has been mined: {} time consuming {}ms", mined_block.index, mined_block.hash, mined_block.get_time_to_generate_block());
             }
             _ => {}
-        }
-
-        if difficulty == 20 
-        {
-            break;
         }
         
     }
